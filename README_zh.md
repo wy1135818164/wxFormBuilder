@@ -74,7 +74,7 @@ sudo apt install libwxgtk3.2-dev libwxgtk-media3.2-dev libboost-dev cmake make g
 编译:
 
 ```sh
-git clone --recursive https://github.com/wxFormBuilder/wxFormBuilder
+git clone --recursive https://github.com/wy1135818164/wxFormBuilder
 cd wxFormBuilder
 cmake -S . -B _build -G "Unix Makefiles" --install-prefix "$PWD/_install" -DCMAKE_BUILD_TYPE=Release
 cmake --build _build --config Release -j `nproc`
@@ -95,17 +95,17 @@ _install/bin/wxformbuilder
 sudo dnf install wxGTK-devel wxGTK-media boost-devel cmake make git
 ```
 
-Building:
+编译:
 
 ```sh
-git clone --recursive https://github.com/wxFormBuilder/wxFormBuilder
+git clone --recursive https://github.com/wy1135818164/wxFormBuilder
 cd wxFormBuilder
 cmake -S . -B _build -G "Unix Makefiles" --install-prefix "$PWD/_install" -DCMAKE_BUILD_TYPE=Release
 cmake --build _build --config Release -j `nproc`
 cmake --install _build --config Release
 ```
 
-Running:
+运行:
 
 ```sh
 _install/bin/wxformbuilder
@@ -127,7 +127,7 @@ brew install wxwidgets boost cmake make git
 编译:
 
 ```sh
-git clone --recursive https://github.com/wxFormBuilder/wxFormBuilder
+git clone --recursive https://github.com/wy1135818164/wxFormBuilder
 cd wxFormBuilder
 cmake -S . -B _build -G "Unix Makefiles" --install-prefix "$PWD/_install" -DCMAKE_BUILD_TYPE=Release
 cmake --build _build --config Release -j `sysctl -n hw.ncpu`
