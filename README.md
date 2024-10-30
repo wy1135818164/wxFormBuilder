@@ -1,7 +1,7 @@
 # wxFormBuilder
 
 
-[跳转到中文文档](https://wxwidgets.org/)
+[跳转到中文文档](https://github.com/wy1135818164/wxFormBuilder/blob/master/README_zh.md)
 
 
 [![Windows Status](https://github.com/wxFormBuilder/wxFormBuilder/actions/workflows/windows.yml/badge.svg?branch=master)](https://github.com/wxFormBuilder/wxFormBuilder/actions/workflows/windows.yml)
