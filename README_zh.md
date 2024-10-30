@@ -3,38 +3,37 @@
 [![Windows Status](https://github.com/wxFormBuilder/wxFormBuilder/actions/workflows/windows.yml/badge.svg?branch=master)](https://github.com/wxFormBuilder/wxFormBuilder/actions/workflows/windows.yml)
 [![Linux Status](https://github.com/wxFormBuilder/wxFormBuilder/actions/workflows/linux.yml/badge.svg?branch=master)](https://github.com/wxFormBuilder/wxFormBuilder/actions/workflows/linux.yml)
 [![macOS Status](https://github.com/wxFormBuilder/wxFormBuilder/actions/workflows/macos.yml/badge.svg?branch=master)](https://github.com/wxFormBuilder/wxFormBuilder/actions/workflows/macos.yml)
+wxFormBuilder是wxWidgets框架的GUI构建器。
 
-wxFormBuilder is a GUI builder for the wxWidgets framework.
+代码生成支持[C++](https://wxwidgets.org/), [Python](https://wxpython.org/),
+[Lua](https://github.com/pkulchenko/wxlua) 和 [PHP](https://github.com/wxphp/wxphp).
+导出 [XRC](https://docs.wxwidgets.org/trunk/overview_xrc.html)。
+为了支持额外的小部件，可以使用自定义插件。
 
-Code generation is supported for [C++](https://wxwidgets.org/), [Python](https://wxpython.org/),
-[Lua](https://github.com/pkulchenko/wxlua) and [PHP](https://github.com/wxphp/wxphp).
-Additionally, the import and export of [XRC](https://docs.wxwidgets.org/trunk/overview_xrc.html) code is possible.
-To support additional widgets, custom plugins can be used.
+wxFormBuilder可以在Windows、各种Linux发行版和macOS上运行。
 
-wxFormBuilder runs on Windows, various Linux distributions and macOS.
-
-## Download Binaries
+## 下载二进制文件
 
 * [GitHub Releases](https://github.com/wxFormBuilder/wxFormBuilder/releases)
 * [GitHub CI Builds](https://github.com/wxFormBuilder/wxFormBuilder/actions)
 
-## Install from Source
+## 从源代码安装
 
-Building from source requires CMake version 3.21, if this version is not available in the package repositories of your operating system,
-the [CMake](https://cmake.org/download/) website offers binary downloads for multiple platforms. wxFormBuilder uses the
-[wxWidgets](https://wxwidgets.org/) framework itself, it is highly recommended using the current stable version 3.2.x,
-the previous stable version 3.0.x is known to cause multiple issues and should be avoided.
+从源代码构建需要CMake版本3.21，如果该版本在您的操作系统的包存储库中不可用，请使用
+[CMake](https://cmake.org/download/) 网站提供多种平台的二进制下载。
+wxFormBuilder使用[wxWidgets](https://wxwidgets.org/) 框架本身，强烈建议使用当前稳定版本3.2.x，
+以前的稳定版本3.0.X会导致多种问题，应该避免使用。
 
 ### Windows
 
-Building on Windows has been tested with [MSVC](https://visualstudio.com), [Mingw-w64](https://mingw-w64.org) and
-[MSYS2](https://msys2.org) in 32 bit and 64 bit mode. Using MSYS2 is a bit more convenient because it offers the required
-libraries precompiled and CMake can find them automatically. Using the other compilers it might be necessary to specify the library
-locations manually. The following instructions use MSYS2.
+在Windows上构建已通过 [MSVC](https://visualstudio.com), [Mingw-w64](https://mingw-w64.org) 和
+[MSYS2](https://msys2.org) 支持32位和64位模式。使用MSYS2更方便一些，因为它提供了所需的功能
+预编译的库和CMake可以自动找到它们。使用其他编译器时，可能需要指定库
+手动位置。下面的说明使用MSYS2。
 
-Install MSYS2 and open a MINGW32 or MINGW64 shell.
+安装 MSYS2 并打开MINGW32或MINGW64 shell。
 
-Installing the Prerequisites:
+安装前提条件:
 
 ```sh
 pacman -Syu
@@ -42,17 +41,17 @@ pacman -S ${MINGW_PACKAGE_PREFIX}-toolchain ${MINGW_PACKAGE_PREFIX}-cmake ${MING
 pacman -S ${MINGW_PACKAGE_PREFIX}-wxWidgets3.2 ${MINGW_PACKAGE_PREFIX}-boost
 ```
 
-Building:
+编译:
 
 ```sh
-git clone --recursive https://github.com/wxFormBuilder/wxFormBuilder
+git clone --recursive https://github.com/wy1135818164/wxFormBuilder
 cd wxFormBuilder
 cmake -S . -B _build -G "MSYS Makefiles" --install-prefix "$PWD/_install" -DCMAKE_BUILD_TYPE=Release
 cmake --build _build --config Release -j `nproc`
 cmake --install _build --config Release
 ```
 
-Running:
+运行:
 
 ```sh
 _install/wxFormBuilder
@@ -62,17 +61,17 @@ _install/wxFormBuilder
 
 ### Linux
 
-Building on Linux has been tested on Ubuntu and Fedora with GCC in 64 bit mode but should work on many more distributions.
+Linux上的构建已经在Ubuntu和Fedora上进行了测试，并在64位模式下使用GCC，但应该可以在更多的发行版上运行。
 
 #### Ubuntu
 
-Installing the Prerequisites:
+安装前提条件:
 
 ```sh
 sudo apt install libwxgtk3.2-dev libwxgtk-media3.2-dev libboost-dev cmake make git
 ```
 
-Building:
+编译:
 
 ```sh
 git clone --recursive https://github.com/wxFormBuilder/wxFormBuilder
@@ -82,7 +81,7 @@ cmake --build _build --config Release -j `nproc`
 cmake --install _build --config Release
 ```
 
-Running:
+运行:
 
 ```sh
 _install/bin/wxformbuilder
@@ -90,7 +89,7 @@ _install/bin/wxformbuilder
 
 #### Fedora
 
-Installing the Prerequisites:
+安装前提条件:
 
 ```sh
 sudo dnf install wxGTK-devel wxGTK-media boost-devel cmake make git
@@ -116,17 +115,16 @@ _install/bin/wxformbuilder
 
 ### macOS
 
-Building on macOS has been tested with Clang in 64 bit mode using Xcode and make. The required libraries can be installed
-via [Homebrew](https://brew.sh/).
+在macOS上的构建已经在64位模式下使用Xcode和make与Clang进行了测试。可以通过[Homebrew](https://brew.sh/)安装所需的库。
 
-Installing the Prerequisites:
+安装前提条件:
 
 ```sh
 brew update
 brew install wxwidgets boost cmake make git
 ```
 
-Building:
+编译:
 
 ```sh
 git clone --recursive https://github.com/wxFormBuilder/wxFormBuilder
@@ -136,7 +134,7 @@ cmake --build _build --config Release -j `sysctl -n hw.ncpu`
 cmake --install _build --config Release
 ```
 
-Running:
+运行:
 
 ```sh
 open _install/wxFormBuilder.app
